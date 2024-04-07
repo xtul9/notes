@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             TextButton(
               onPressed: onConfirm,
-              child: Text(AppLocalizations.of(context)!.delete),
+              child: Text(AppLocalizations.of(context)!.continueButton),
             ),
           ],
         );

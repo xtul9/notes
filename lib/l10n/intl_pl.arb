@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2024-04-07T16:10:10.234871",
+  "@@last_modified": "2024-04-07T18:44:03.582904",
   "appTitle": "Notatki",
   "@appTitle": {
     "type": "text",
@@ -147,6 +147,11 @@
   },
   "logoutConfirmation": "Na pewno chcesz się wylogować?",
   "@logoutConfirmation": {
+    "type": "text",
+    "placeholders": {}
+  },  
+  "continueButton": "Kontynuuj",
+  "@continueButton": {
     "type": "text",
     "placeholders": {}
   }

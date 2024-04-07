@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     'clearNotes': MessageLookupByLibrary.simpleMessage('Wyczyść notatki'),
     'confirmDelete': MessageLookupByLibrary.simpleMessage('Czy na pewno chcesz usunąć tę notatkę?'),
     'confirmDeleteAllNotes': MessageLookupByLibrary.simpleMessage('Czy na pewno chcesz usunąć wszystkie notatki?'),
+    'continueButton': MessageLookupByLibrary.simpleMessage('Kontynuuj'),
     'delete': MessageLookupByLibrary.simpleMessage('Usuń'),
     'deleteNote': MessageLookupByLibrary.simpleMessage('Usuń notatkę'),
     'email': MessageLookupByLibrary.simpleMessage('Email'),

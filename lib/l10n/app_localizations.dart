@@ -219,6 +219,13 @@ class AppLocalizations {
     );
   }
 
+  String get continueButton {
+    return Intl.message(
+      'Continue',
+      name: 'continueButton',
+    );
+  }
+
   static LocalizationsDelegate<AppLocalizations> delegate =
       _AppLocalizationsDelegate();
 }
