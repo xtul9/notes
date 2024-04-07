@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_application_1/auth/auth.dart';
-import 'package:flutter_application_1/error/error_page.dart';
-import 'package:flutter_application_1/home/home_page.dart';
+import 'package:flutter_application_1/error/error_screen.dart';
+import 'package:flutter_application_1/home/home_screen.dart';
 import 'package:flutter_application_1/loading.dart';
 import 'firebase_options.dart';
 import 'auth/login_screen.dart';
@@ -43,7 +43,7 @@ class App extends StatelessWidget {
       future: _initialization,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return ErrorPage(
+          return ErrorScreen(
             errorMessage: snapshot.error.toString(),
           );
         }
@@ -57,7 +57,7 @@ class App extends StatelessWidget {
                 if (user == null) {
                   return LoginScreen();
                 }
-                return const HomePage();
+                return const HomeScreen();
               }
               return const Loading();
             },

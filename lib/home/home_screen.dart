@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/auth.dart';
+import 'package:flutter_application_1/error/error_snack.dart';
 import 'package:flutter_application_1/firestore/data_access.dart';
 import 'package:flutter_application_1/l10n/app_localizations.dart';
 
 import '../model/note.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomeScreenState extends State<HomeScreen> {
   final List<Note> _notes = [];
   final noteController = TextEditingController();
   final _dataAccess = DataAccess();
@@ -25,18 +26,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void onError(String message) {
-    _showSnackBar(message);
-  }
-
-  void _showSnackBar(String message) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          message,
-          style: const TextStyle(color: Colors.red),
-        ),
-      ),
-    );
+    ErrorSnack.show(context, message);
   }
 
   void _showConfirmationDialog(
@@ -81,12 +71,13 @@ class _HomePageState extends State<HomePage> {
 
   void _addNote(String content) {
     if (content.length > 2000) {
-      _showSnackBar(AppLocalizations.of(context)!.noteLengthExceeded);
+      ErrorSnack.show(
+          context, AppLocalizations.of(context)!.noteLengthExceeded);
       return;
     }
 
     if (_notes.length >= 10) {
-      _showSnackBar(AppLocalizations.of(context)!.tooManyNotes);
+      ErrorSnack.show(context, AppLocalizations.of(context)!.tooManyNotes);
       return;
     }
 
@@ -105,8 +96,10 @@ class _HomePageState extends State<HomePage> {
             })
           };
 
-      failureCallback() =>
-          {_showSnackBar(AppLocalizations.of(context)!.failedSavingNote)};
+      failureCallback() => {
+            ErrorSnack.show(
+                context, AppLocalizations.of(context)!.failedSavingNote)
+          };
 
       _dataAccess.addNoteToFirestore(
           note, userId, successCallback, failureCallback);
