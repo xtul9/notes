@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/auth/auth.dart';
+import 'package:flutter_application_1/i18n/app_localizations.dart';
 
 import '../model/note.dart';
 
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         });
       }
     } catch (e) {
-      _showSnackBar('Failed fetching notes.');
+      _showSnackBar(AppLocalizations.of(context)!.failedFetchingNotes);
     }
   }
 
