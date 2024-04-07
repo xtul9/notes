@@ -18,6 +18,7 @@ class LoginScreen extends StatelessWidget {
       );
 
       if (!auth.currentUser!.emailVerified) {
+        auth.signOut();
         throw Exception('Email not verified');
       }
     } catch (e) {

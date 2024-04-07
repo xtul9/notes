@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/auth/auth.dart';
 import 'package:flutter_application_1/error/error_snack.dart';
 import 'package:flutter_application_1/l10n/app_localizations.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,6 +16,7 @@ class RegisterScreen extends StatelessWidget {
       );
 
       uc.user!.sendEmailVerification();
+      auth.signOut();
 
       showDialog(
           context: context,
