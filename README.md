@@ -12,6 +12,7 @@ Just my contribution to the modern world I suppose.
 - Zero quality control
 - 100% unit test coverage despite the sheer size of the codebase
 - Isn't .NET so should prove I'm a problem solver 1st and a programmer 2nd
+- Multiple languages to choose from (two, actually)
 
 ## License
 

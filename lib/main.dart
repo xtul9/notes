@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_application_1/auth/auth.dart';
 import 'package:flutter_application_1/error/error_page.dart';
@@ -7,11 +8,20 @@ import 'package:flutter_application_1/home/home_page.dart';
 import 'package:flutter_application_1/loading.dart';
 import 'firebase_options.dart';
 import 'auth/login_screen.dart';
+import 'l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(MaterialApp(
+    localizationsDelegates: [
+      AppLocalizations.delegate,
+      GlobalMaterialLocalizations.delegate,
+      GlobalWidgetsLocalizations.delegate,
+    ],
+    supportedLocales: const [Locale('en', ''), Locale('pl', '')],
+    onGenerateTitle: (BuildContext context) =>
+        AppLocalizations.of(context)!.appTitle,
     theme: ThemeData(
       primarySwatch: Colors.amber,
       visualDensity: VisualDensity.adaptivePlatformDensity,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/auth.dart';
+import 'package:flutter_application_1/l10n/app_localizations.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -13,7 +14,7 @@ class LoginScreen extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Login'),
+          title: Text(AppLocalizations.of(context)!.login),
         ),
         body: Center(
           child: Column(
@@ -21,40 +22,41 @@ class LoginScreen extends StatelessWidget {
             children: [
               TextField(
                 controller: emailController,
-                decoration: const InputDecoration(
-                  labelText: 'Email',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.email,
                 ),
               ),
               const SizedBox(height: 16),
               TextField(
                 controller: passwordController,
-                decoration: const InputDecoration(
-                  labelText: 'Password',
+                decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.password,
                 ),
                 obscureText: true,
               ),
               const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: () async {
-                  try {
-                    await auth.signInWithEmailAndPassword(
-                      email: emailController.text,
-                      password: passwordController.text,
-                    );
-                  } catch (e) {
-                    // Handle login error
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text(
-                          'Login failed. Please check your email and password.',
-                          style: TextStyle(color: Colors.red),
+                  onPressed: () async {
+                    try {
+                      await auth.signInWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text,
+                      );
+                    } catch (e) {
+                      // Handle login error
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            AppLocalizations.of(context)!.failedLogin,
+                            style: const TextStyle(color: Colors.red),
+                          ),
                         ),
-                      ),
-                    );
-                  }
-                },
-                child: const Text('Login'),
-              ),
+                      );
+                    }
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.loginAction,
+                  )),
             ],
           ),
         ),

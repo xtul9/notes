@@ -1,0 +1,78 @@
+{
+  "@@last_modified": "2024-04-07T16:36:19.808381",
+  "appTitle": "Notes",
+  "@appTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failedFetchingNotes": "Failed fetching notes.",
+  "@failedFetchingNotes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "noteLengthExceeded": "Note length exceeds the limit of 2000 characters.",
+  "@noteLengthExceeded": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "tooManyNotes": "You can only have 10 notes. (I'm on a free plan dude)",
+  "@tooManyNotes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failedSavingNote": "Could not save this note.",
+  "@failedSavingNote": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failedDeletingNote": "Could not delete this note.",
+  "@failedDeletingNote": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clearNotes": "Clear notes",
+  "@clearNotes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "deleteNote": "Delete note",
+  "@deleteNote": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "notes": "Notes",
+  "@notes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "enterNote": "Enter note",
+  "@enterNote": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "login": "Login",
+  "@login": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "email": "Email",
+  "@email": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "password": "Password",
+  "@password": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failedLogin": "Login failed. Please check your email and password.",
+  "@failedLogin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginAction": "Login",
+  "@loginAction": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
