@@ -8,17 +8,20 @@ import 'package:flutter_application_1/home/home_page.dart';
 import 'package:flutter_application_1/loading.dart';
 import 'firebase_options.dart';
 import 'auth/login_screen.dart';
-import 'i18n/app_localizations.dart';
+import 'l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   runApp(MaterialApp(
-    localizationsDelegates: const [
+    localizationsDelegates: [
       AppLocalizations.delegate,
       GlobalMaterialLocalizations.delegate,
       GlobalWidgetsLocalizations.delegate,
     ],
+    supportedLocales: const [Locale('en', ''), Locale('pl', '')],
+    onGenerateTitle: (BuildContext context) =>
+        AppLocalizations.of(context)!.appTitle,
     theme: ThemeData(
       primarySwatch: Colors.amber,
       visualDensity: VisualDensity.adaptivePlatformDensity,

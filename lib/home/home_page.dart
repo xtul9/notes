@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/auth/auth.dart';
-import 'package:flutter_application_1/i18n/app_localizations.dart';
+import 'package:flutter_application_1/l10n/app_localizations.dart';
 
 import '../model/note.dart';
 
@@ -58,12 +58,12 @@ class _HomePageState extends State<HomePage> {
 
   void _addNote(String content) {
     if (content.length > 2000) {
-      _showSnackBar('Note length exceeds the limit of 2000 characters.');
+      _showSnackBar(AppLocalizations.of(context)!.noteLengthExceeded);
       return;
     }
 
     if (_notes.length >= 10) {
-      _showSnackBar('You can only have 10 notes. (I\'m on a free plan dude)');
+      _showSnackBar(AppLocalizations.of(context)!.tooManyNotes);
       return;
     }
 
@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
           noteController.clear();
         });
       }).catchError((error) {
-        _showSnackBar('Could not save this note.');
+        _showSnackBar(AppLocalizations.of(context)!.failedSavingNote);
       });
     }
   }
@@ -124,7 +124,7 @@ class _HomePageState extends State<HomePage> {
     try {
       await notesCollection.doc(note.document).delete();
     } catch (e) {
-      _showSnackBar('Could not delete this note.');
+      _showSnackBar(AppLocalizations.of(context)!.failedDeletingNote);
     }
   }
 
@@ -133,12 +133,12 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.primary,
-        title: const Text('Notes'),
+        title: Text(AppLocalizations.of(context)!.notes),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: _clearNotes,
-            tooltip: 'Clear notes',
+            tooltip: AppLocalizations.of(context)!.clearNotes,
           ),
         ],
       ),
@@ -164,9 +164,9 @@ class _HomePageState extends State<HomePage> {
                 child: TextField(
                   controller: noteController,
                   maxLines: null,
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: 'Enter note',
+                  decoration: InputDecoration(
+                    border: const UnderlineInputBorder(),
+                    labelText: AppLocalizations.of(context)!.enterNote,
                   ),
                 ),
               ),
