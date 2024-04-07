@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2024-04-07T16:36:19.808381",
+  "@@last_modified": "2024-04-07T17:11:13.948534",
   "appTitle": "Notes",
   "@appTitle": {
     "type": "text",
@@ -27,6 +27,11 @@
   },
   "failedDeletingNote": "Could not delete this note.",
   "@failedDeletingNote": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failedClearingNotes": "Could not clear notes.",
+  "@failedClearingNotes": {
     "type": "text",
     "placeholders": {}
   },

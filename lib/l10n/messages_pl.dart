@@ -25,7 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final Map<String, dynamic> messages = _notInlinedMessages(_notInlinedMessages);
 
   static Map<String, dynamic> _notInlinedMessages(_) => {
-      'clearNotes': MessageLookupByLibrary.simpleMessage('Wyczyść notatki'),
+      'appTitle': MessageLookupByLibrary.simpleMessage('Notatki'),
+    'clearNotes': MessageLookupByLibrary.simpleMessage('Wyczyść notatki'),
     'deleteNote': MessageLookupByLibrary.simpleMessage('Usuń notatkę'),
     'email': MessageLookupByLibrary.simpleMessage('Email'),
     'enterNote': MessageLookupByLibrary.simpleMessage('Wprowadź notatkę'),

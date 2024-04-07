@@ -51,6 +51,13 @@ class AppLocalizations {
     );
   }
 
+  String get failedClearingNotes {
+    return Intl.message(
+      'Could not clear notes.',
+      name: 'failedClearingNotes',
+    );
+  }
+
   String get clearNotes {
     return Intl.message(
       'Clear notes',

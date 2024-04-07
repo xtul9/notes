@@ -30,6 +30,11 @@
         "type": "text",
         "placeholders": {}
     },
+    "failedClearingNotes": "Nie udało się wyczyścić notatek.",
+    "@failedClearingNotes": {
+      "type": "text",
+      "placeholders": {}
+    },
     "clearNotes": "Wyczyść notatki",
     "@clearNotes": {
         "type": "text",
