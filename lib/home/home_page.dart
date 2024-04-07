@@ -24,6 +24,10 @@ class _HomePageState extends State<HomePage> {
     _downloadNotes();
   }
 
+  void onError(String message) {
+    _showSnackBar(message);
+  }
+
   void _showSnackBar(String message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -35,11 +39,34 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<void> _downloadNotes() async {
-    onError() =>
-        {_showSnackBar(AppLocalizations.of(context)!.failedFetchingNotes)};
+  void _showConfirmationDialog(
+      String title, String content, VoidCallback onConfirm) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(content),
+          actions: <Widget>[
+            TextButton(
+              child: Text(AppLocalizations.of(context)!.cancel),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              onPressed: onConfirm,
+              child: Text(AppLocalizations.of(context)!.delete),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
-    final notes = await _dataAccess.getNotesFromFirestore(userId, onError);
+  Future<void> _downloadNotes() async {
+    final notes = await _dataAccess.getNotesFromFirestore(userId,
+        () => onError(AppLocalizations.of(context)!.failedFetchingNotes));
 
     for (var doc in notes.docs) {
       setState(() {
@@ -86,28 +113,42 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  void _clearNotes() async {
-    onError() =>
-        {_showSnackBar(AppLocalizations.of(context)!.failedDeletingNote)};
+  void _clearNotes() {
+    onClearError() => onError(AppLocalizations.of(context)!.failedDeletingNote);
 
-    final notes = await _dataAccess.getNotesFromFirestore(userId, onError);
+    onConfirm() async {
+      final notes =
+          await _dataAccess.getNotesFromFirestore(userId, onClearError);
+      await _dataAccess.clearNotesFromFirestore(notes.docs, onClearError);
 
-    await _dataAccess.clearNotesFromFirestore(notes.docs, onError);
+      setState(() {
+        _notes.clear();
+      });
 
-    setState(() {
-      _notes.clear();
-    });
+      if (mounted) {
+        Navigator.of(context).pop();
+      }
+    }
+
+    _showConfirmationDialog(AppLocalizations.of(context)!.delete,
+        AppLocalizations.of(context)!.confirmDeleteAllNotes, onConfirm);
   }
 
   void _removeNote(int index) {
-    onError() =>
-        {_showSnackBar(AppLocalizations.of(context)!.failedDeletingNote)};
+    onConfirm() {
+      _dataAccess.deleteNoteFromFirestore(_notes[index].document!,
+          () => onError(AppLocalizations.of(context)!.failedDeletingNote));
+      setState(() {
+        _notes.removeAt(index);
+      });
+      Navigator.of(context).pop();
+    }
 
-    _dataAccess.deleteNoteFromFirestore(_notes[index].document!, onError);
-
-    setState(() {
-      _notes.removeAt(index);
-    });
+    _showConfirmationDialog(
+      AppLocalizations.of(context)!.delete,
+      AppLocalizations.of(context)!.confirmDelete,
+      onConfirm,
+    );
   }
 
   @override
