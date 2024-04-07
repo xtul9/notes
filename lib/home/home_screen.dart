@@ -146,7 +146,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   void _logout() {
     _showConfirmationDialog(AppLocalizations.of(context)!.logout,
-        AppLocalizations.of(context)!.logoutConfirmation, auth.signOut);
+        AppLocalizations.of(context)!.logoutConfirmation, () {
+      auth.signOut();
+      Navigator.of(context).pop();
+    });
   }
 
   @override
@@ -157,12 +160,12 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(AppLocalizations.of(context)!.notes),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete, color: Colors.white),
             onPressed: _clearNotes,
             tooltip: AppLocalizations.of(context)!.clearNotes,
           ),
           IconButton(
-            icon: const Icon(Icons.logout),
+            icon: const Icon(Icons.logout, color: Colors.white),
             onPressed: _logout,
             tooltip: AppLocalizations.of(context)!.logout,
           ),
