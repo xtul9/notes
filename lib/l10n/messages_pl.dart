@@ -33,17 +33,25 @@ class MessageLookup extends MessageLookupByLibrary {
     'delete': MessageLookupByLibrary.simpleMessage('Usuń'),
     'deleteNote': MessageLookupByLibrary.simpleMessage('Usuń notatkę'),
     'email': MessageLookupByLibrary.simpleMessage('Email'),
+    'emailInUse': MessageLookupByLibrary.simpleMessage('Ten email jest już używany.'),
     'enterNote': MessageLookupByLibrary.simpleMessage('Wprowadź notatkę'),
     'failedClearingNotes': MessageLookupByLibrary.simpleMessage('Nie udało się wyczyścić notatek.'),
     'failedDeletingNote': MessageLookupByLibrary.simpleMessage('Nie udało się usunąć tej notatki.'),
     'failedFetchingNotes': MessageLookupByLibrary.simpleMessage('Nie udało się pobrać notatek.'),
-    'failedLogin': MessageLookupByLibrary.simpleMessage('Logowanie nie powiodło się. Sprawdź swój email i hasło.'),
+    'failedLogin': MessageLookupByLibrary.simpleMessage('Logowanie nie powiodło się. Sprawdź swój email i hasło. Upewnij się, że zweryfikowałeś email!'),
     'failedSavingNote': MessageLookupByLibrary.simpleMessage('Nie udało się zapisać tej notatki.'),
-    'login': MessageLookupByLibrary.simpleMessage('Zaloguj się'),
+    'login': MessageLookupByLibrary.simpleMessage('Login'),
     'loginAction': MessageLookupByLibrary.simpleMessage('Zaloguj się'),
     'noteLengthExceeded': MessageLookupByLibrary.simpleMessage('Długość notatki przekracza limit 2000 znaków.'),
     'notes': MessageLookupByLibrary.simpleMessage('Notatki'),
+    'ok': MessageLookupByLibrary.simpleMessage('OK'),
     'password': MessageLookupByLibrary.simpleMessage('Hasło'),
-    'tooManyNotes': MessageLookupByLibrary.simpleMessage('Możesz mieć tylko 10 notatek. (używam darmowego planu mordeczko)')
+    'passwordTooShort': MessageLookupByLibrary.simpleMessage('Hasło powinno mieć co najmniej 6 znaków.'),
+    'register': MessageLookupByLibrary.simpleMessage('Rejestracja'),
+    'registerAction': MessageLookupByLibrary.simpleMessage('Zarejestruj się'),
+    'registerError': MessageLookupByLibrary.simpleMessage('Nie można się zarejestrować. Spróbuj ponownie za kilka minut.'),
+    'tooManyNotes': MessageLookupByLibrary.simpleMessage('Możesz mieć tylko 10 notatek. (używam darmowego planu mordeczko)'),
+    'verificationEmailSent': MessageLookupByLibrary.simpleMessage('Wysłano Email Weryfikacyjny'),
+    'verificationEmailSentContent': MessageLookupByLibrary.simpleMessage('Wysłaliśmy email weryfikacyjny na twój email. Sprawdź swoją skrzynkę odbiorczą i podążaj za instrukcjami, by zweryfikować konto.')
   };
 }

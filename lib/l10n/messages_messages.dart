@@ -33,17 +33,25 @@ class MessageLookup extends MessageLookupByLibrary {
     'delete': MessageLookupByLibrary.simpleMessage('Delete'),
     'deleteNote': MessageLookupByLibrary.simpleMessage('Delete note'),
     'email': MessageLookupByLibrary.simpleMessage('Email'),
+    'emailInUse': MessageLookupByLibrary.simpleMessage('This email is already in use.'),
     'enterNote': MessageLookupByLibrary.simpleMessage('Enter note'),
     'failedClearingNotes': MessageLookupByLibrary.simpleMessage('Could not clear notes.'),
     'failedDeletingNote': MessageLookupByLibrary.simpleMessage('Could not delete this note.'),
     'failedFetchingNotes': MessageLookupByLibrary.simpleMessage('Failed fetching notes.'),
-    'failedLogin': MessageLookupByLibrary.simpleMessage('Login failed. Please check your email and password.'),
+    'failedLogin': MessageLookupByLibrary.simpleMessage('Login failed. Please check your email and password. Make sure you verified your email!'),
     'failedSavingNote': MessageLookupByLibrary.simpleMessage('Could not save this note.'),
     'login': MessageLookupByLibrary.simpleMessage('Login'),
     'loginAction': MessageLookupByLibrary.simpleMessage('Login'),
     'noteLengthExceeded': MessageLookupByLibrary.simpleMessage('Note length exceeds the limit of 2000 characters.'),
     'notes': MessageLookupByLibrary.simpleMessage('Notes'),
+    'ok': MessageLookupByLibrary.simpleMessage('OK'),
     'password': MessageLookupByLibrary.simpleMessage('Password'),
-    'tooManyNotes': MessageLookupByLibrary.simpleMessage('You can only have 10 notes. (I\'m on a free plan dude)')
+    'passwordTooShort': MessageLookupByLibrary.simpleMessage('The password should have at least 6 characters.'),
+    'register': MessageLookupByLibrary.simpleMessage('Register'),
+    'registerAction': MessageLookupByLibrary.simpleMessage('Register'),
+    'registerError': MessageLookupByLibrary.simpleMessage('Unable to register. Try again in few minutes.'),
+    'tooManyNotes': MessageLookupByLibrary.simpleMessage('You can only have 10 notes. (I\'m on a free plan dude)'),
+    'verificationEmailSent': MessageLookupByLibrary.simpleMessage('Verification Email Sent'),
+    'verificationEmailSentContent': MessageLookupByLibrary.simpleMessage('A verification email has been sent to your email. Please check your inbox and follow the instructions to verify your account.')
   };
 }

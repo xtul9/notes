@@ -109,7 +109,7 @@ class AppLocalizations {
 
   String get failedLogin {
     return Intl.message(
-      'Login failed. Please check your email and password.',
+      'Login failed. Please check your email and password. Make sure you verified your email!',
       name: 'failedLogin',
     );
   }
@@ -146,6 +146,62 @@ class AppLocalizations {
     return Intl.message(
       'Delete',
       name: 'delete',
+    );
+  }
+
+  String get register {
+    return Intl.message(
+      'Register',
+      name: 'register',
+    );
+  }
+
+  String get registerAction {
+    return Intl.message(
+      'Register',
+      name: 'registerAction',
+    );
+  }
+
+  String get passwordTooShort {
+    return Intl.message(
+      'The password should have at least 6 characters.',
+      name: 'passwordTooShort',
+    );
+  }
+
+  String get emailInUse {
+    return Intl.message(
+      'This email is already in use.',
+      name: 'emailInUse',
+    );
+  }
+
+  String get registerError {
+    return Intl.message(
+      'Unable to register. Try again in few minutes.',
+      name: 'registerError',
+    );
+  }
+
+  String get verificationEmailSent {
+    return Intl.message(
+      'Verification Email Sent',
+      name: 'verificationEmailSent',
+    );
+  }
+
+  String get verificationEmailSentContent {
+    return Intl.message(
+      'A verification email has been sent to your email. Please check your inbox and follow the instructions to verify your account.',
+      name: 'verificationEmailSentContent',
+    );
+  }
+
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
     );
   }
 
