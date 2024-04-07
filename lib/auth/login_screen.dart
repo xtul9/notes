@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/auth/auth.dart';
+import 'package:flutter_application_1/auth/register_screen.dart';
+import 'package:flutter_application_1/error/error_snack.dart';
 import 'package:flutter_application_1/l10n/app_localizations.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -7,6 +9,21 @@ class LoginScreen extends StatelessWidget {
 
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+
+  void _login(BuildContext context) async {
+    try {
+      await auth.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      if (!auth.currentUser!.emailVerified) {
+        throw Exception('Email not verified');
+      }
+    } catch (e) {
+      ErrorSnack.show(context, AppLocalizations.of(context)!.failedLogin);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,28 +52,30 @@ class LoginScreen extends StatelessWidget {
                 obscureText: true,
               ),
               const SizedBox(height: 16),
-              ElevatedButton(
-                  onPressed: () async {
-                    try {
-                      await auth.signInWithEmailAndPassword(
-                        email: emailController.text,
-                        password: passwordController.text,
-                      );
-                    } catch (e) {
-                      // Handle login error
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                            AppLocalizations.of(context)!.failedLogin,
-                            style: const TextStyle(color: Colors.red),
-                          ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  ElevatedButton(
+                    onPressed: () => _login(context),
+                    child: Text(
+                      AppLocalizations.of(context)!.loginAction,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RegisterScreen(),
                         ),
                       );
-                    }
-                  },
-                  child: Text(
-                    AppLocalizations.of(context)!.loginAction,
-                  )),
+                    },
+                    child: Text(
+                      AppLocalizations.of(context)!.registerAction,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
