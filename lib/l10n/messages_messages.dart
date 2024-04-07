@@ -26,10 +26,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static Map<String, dynamic> _notInlinedMessages(_) => {
       'appTitle': MessageLookupByLibrary.simpleMessage('Notes'),
+    'cancel': MessageLookupByLibrary.simpleMessage('Cancel'),
     'clearNotes': MessageLookupByLibrary.simpleMessage('Clear notes'),
+    'confirmDelete': MessageLookupByLibrary.simpleMessage('Are you sure you want to delete this note?'),
+    'confirmDeleteAllNotes': MessageLookupByLibrary.simpleMessage('Are you sure you want to delete all notes?'),
+    'delete': MessageLookupByLibrary.simpleMessage('Delete'),
     'deleteNote': MessageLookupByLibrary.simpleMessage('Delete note'),
     'email': MessageLookupByLibrary.simpleMessage('Email'),
     'enterNote': MessageLookupByLibrary.simpleMessage('Enter note'),
+    'failedClearingNotes': MessageLookupByLibrary.simpleMessage('Could not clear notes.'),
     'failedDeletingNote': MessageLookupByLibrary.simpleMessage('Could not delete this note.'),
     'failedFetchingNotes': MessageLookupByLibrary.simpleMessage('Failed fetching notes.'),
     'failedLogin': MessageLookupByLibrary.simpleMessage('Login failed. Please check your email and password.'),

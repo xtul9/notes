@@ -26,10 +26,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static Map<String, dynamic> _notInlinedMessages(_) => {
       'appTitle': MessageLookupByLibrary.simpleMessage('Notatki'),
+    'cancel': MessageLookupByLibrary.simpleMessage('Anuluj'),
     'clearNotes': MessageLookupByLibrary.simpleMessage('Wyczyść notatki'),
+    'confirmDelete': MessageLookupByLibrary.simpleMessage('Czy na pewno chcesz usunąć tę notatkę?'),
+    'confirmDeleteAllNotes': MessageLookupByLibrary.simpleMessage('Czy na pewno chcesz usunąć wszystkie notatki?'),
+    'delete': MessageLookupByLibrary.simpleMessage('Usuń'),
     'deleteNote': MessageLookupByLibrary.simpleMessage('Usuń notatkę'),
     'email': MessageLookupByLibrary.simpleMessage('Email'),
     'enterNote': MessageLookupByLibrary.simpleMessage('Wprowadź notatkę'),
+    'failedClearingNotes': MessageLookupByLibrary.simpleMessage('Nie udało się wyczyścić notatek.'),
     'failedDeletingNote': MessageLookupByLibrary.simpleMessage('Nie udało się usunąć tej notatki.'),
     'failedFetchingNotes': MessageLookupByLibrary.simpleMessage('Nie udało się pobrać notatek.'),
     'failedLogin': MessageLookupByLibrary.simpleMessage('Logowanie nie powiodło się. Sprawdź swój email i hasło.'),
