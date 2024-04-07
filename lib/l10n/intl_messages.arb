@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2024-04-07T16:36:19.808381",
+  "@@last_modified": "2024-04-07T17:36:28.108314",
   "appTitle": "Notes",
   "@appTitle": {
     "type": "text",
@@ -27,6 +27,11 @@
   },
   "failedDeletingNote": "Could not delete this note.",
   "@failedDeletingNote": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failedClearingNotes": "Could not clear notes.",
+  "@failedClearingNotes": {
     "type": "text",
     "placeholders": {}
   },
@@ -72,6 +77,26 @@
   },
   "loginAction": "Login",
   "@loginAction": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmDelete": "Are you sure you want to delete this note?",
+  "@confirmDelete": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "confirmDeleteAllNotes": "Are you sure you want to delete all notes?",
+  "@confirmDeleteAllNotes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "delete": "Delete",
+  "@delete": {
     "type": "text",
     "placeholders": {}
   }

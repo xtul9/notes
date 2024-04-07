@@ -51,6 +51,13 @@ class AppLocalizations {
     );
   }
 
+  String get failedClearingNotes {
+    return Intl.message(
+      'Could not clear notes.',
+      name: 'failedClearingNotes',
+    );
+  }
+
   String get clearNotes {
     return Intl.message(
       'Clear notes',
@@ -111,6 +118,34 @@ class AppLocalizations {
     return Intl.message(
       'Login',
       name: 'loginAction',
+    );
+  }
+
+  String get confirmDelete {
+    return Intl.message(
+      'Are you sure you want to delete this note?',
+      name: 'confirmDelete',
+    );
+  }
+
+  String get confirmDeleteAllNotes {
+    return Intl.message(
+      'Are you sure you want to delete all notes?',
+      name: 'confirmDeleteAllNotes',
+    );
+  }
+
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+    );
+  }
+
+  String get delete {
+    return Intl.message(
+      'Delete',
+      name: 'delete',
     );
   }
 

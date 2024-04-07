@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/auth/auth.dart';
+import 'package:flutter_application_1/firestore/data_access.dart';
 import 'package:flutter_application_1/l10n/app_localizations.dart';
 
 import '../model/note.dart';
@@ -15,13 +15,17 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final List<Note> _notes = [];
   final noteController = TextEditingController();
-  final notesCollection = FirebaseFirestore.instance.collection('notes');
+  final _dataAccess = DataAccess();
   final userId = auth.currentUser!.uid;
 
   @override
   void initState() {
     super.initState();
     _downloadNotes();
+  }
+
+  void onError(String message) {
+    _showSnackBar(message);
   }
 
   void _showSnackBar(String message) {
@@ -35,24 +39,43 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<void> _downloadNotes() async {
-    try {
-      final notes = await notesCollection
-          .where('userid', isEqualTo: userId)
-          .orderBy('order')
-          .get();
+  void _showConfirmationDialog(
+      String title, String content, VoidCallback onConfirm) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(content),
+          actions: <Widget>[
+            TextButton(
+              child: Text(AppLocalizations.of(context)!.cancel),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            TextButton(
+              onPressed: onConfirm,
+              child: Text(AppLocalizations.of(context)!.delete),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
-      for (var doc in notes.docs) {
-        setState(() {
-          _notes.add(Note(
-              document: doc.id,
-              content: doc['content'],
-              userId: userId,
-              order: doc['order'] ?? 0));
-        });
-      }
-    } catch (e) {
-      _showSnackBar(AppLocalizations.of(context)!.failedFetchingNotes);
+  Future<void> _downloadNotes() async {
+    final notes = await _dataAccess.getNotesFromFirestore(userId,
+        () => onError(AppLocalizations.of(context)!.failedFetchingNotes));
+
+    for (var doc in notes.docs) {
+      setState(() {
+        _notes.add(Note(
+            document: doc.id,
+            content: doc['content'],
+            userId: userId,
+            order: doc['order'] ?? 0));
+      });
     }
   }
 
@@ -75,57 +98,57 @@ class _HomePageState extends State<HomePage> {
     );
 
     if (note.content.isNotEmpty && !_notes.contains(note)) {
-      notesCollection.add({
-        'userid': auth.currentUser!.uid,
-        'content': note.content,
-        'order': note.order,
-      }).then((value) {
-        note = Note(
-          document: value.id,
-          content: note.content,
-          userId: note.userId,
-          order: note.order,
-        );
+      successCallback(newNote) => {
+            setState(() {
+              _notes.add(newNote);
+              noteController.clear();
+            })
+          };
 
-        setState(() {
-          _notes.add(note);
-          noteController.clear();
-        });
-      }).catchError((error) {
-        _showSnackBar(AppLocalizations.of(context)!.failedSavingNote);
-      });
+      failureCallback() =>
+          {_showSnackBar(AppLocalizations.of(context)!.failedSavingNote)};
+
+      _dataAccess.addNoteToFirestore(
+          note, userId, successCallback, failureCallback);
     }
   }
 
   void _clearNotes() {
-    setState(() {
-      _deleteUserNotesFromFirestore();
-      _notes.clear();
-    });
-  }
+    onClearError() => onError(AppLocalizations.of(context)!.failedDeletingNote);
 
-  void _deleteUserNotesFromFirestore() async {
-    final notes =
-        await notesCollection.where('userid', isEqualTo: userId).get();
+    onConfirm() async {
+      final notes =
+          await _dataAccess.getNotesFromFirestore(userId, onClearError);
+      await _dataAccess.clearNotesFromFirestore(notes.docs, onClearError);
 
-    for (var doc in notes.docs) {
-      await notesCollection.doc(doc.id).delete();
+      setState(() {
+        _notes.clear();
+      });
+
+      if (mounted) {
+        Navigator.of(context).pop();
+      }
     }
+
+    _showConfirmationDialog(AppLocalizations.of(context)!.delete,
+        AppLocalizations.of(context)!.confirmDeleteAllNotes, onConfirm);
   }
 
   void _removeNote(int index) {
-    setState(() {
-      _deleteNoteFromFirestore(_notes[index]);
-      _notes.removeAt(index);
-    });
-  }
-
-  Future<void> _deleteNoteFromFirestore(Note note) async {
-    try {
-      await notesCollection.doc(note.document).delete();
-    } catch (e) {
-      _showSnackBar(AppLocalizations.of(context)!.failedDeletingNote);
+    onConfirm() {
+      _dataAccess.deleteNoteFromFirestore(_notes[index].document!,
+          () => onError(AppLocalizations.of(context)!.failedDeletingNote));
+      setState(() {
+        _notes.removeAt(index);
+      });
+      Navigator.of(context).pop();
     }
+
+    _showConfirmationDialog(
+      AppLocalizations.of(context)!.delete,
+      AppLocalizations.of(context)!.confirmDelete,
+      onConfirm,
+    );
   }
 
   @override

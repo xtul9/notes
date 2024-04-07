@@ -1,78 +1,103 @@
 {
-    "@@last_modified": "2024-04-07T16:10:10.234871",
-    "appTitle": "Notatki",
-    "@appTitle": {
+  "@@last_modified": "2024-04-07T16:10:10.234871",
+  "appTitle": "Notatki",
+  "@appTitle": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "failedFetchingNotes": "Nie udało się pobrać notatek.",
+  "@failedFetchingNotes": {
       "type": "text",
       "placeholders": {}
-    },
-    "failedFetchingNotes": "Nie udało się pobrać notatek.",
-    "@failedFetchingNotes": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "noteLengthExceeded": "Długość notatki przekracza limit 2000 znaków.",
-    "@noteLengthExceeded": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "tooManyNotes": "Możesz mieć tylko 10 notatek. (używam darmowego planu mordeczko)",
-    "@tooManyNotes": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "failedSavingNote": "Nie udało się zapisać tej notatki.",
-    "@failedSavingNote": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "failedDeletingNote": "Nie udało się usunąć tej notatki.",
-    "@failedDeletingNote": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "clearNotes": "Wyczyść notatki",
-    "@clearNotes": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "deleteNote": "Usuń notatkę",
-    "@deleteNote": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "notes": "Notatki",
-    "@notes": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "enterNote": "Wprowadź notatkę",
-    "@enterNote": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "login": "Zaloguj się",
-    "@login": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "email": "Email",
-    "@email": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "password": "Hasło",
-    "@password": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "failedLogin": "Logowanie nie powiodło się. Sprawdź swój email i hasło.",
-    "@failedLogin": {
-        "type": "text",
-        "placeholders": {}
-    },
-    "loginAction": "Zaloguj się",
-    "@loginAction": {
-        "type": "text",
-        "placeholders": {}
-    }
+  },
+  "noteLengthExceeded": "Długość notatki przekracza limit 2000 znaków.",
+  "@noteLengthExceeded": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "tooManyNotes": "Możesz mieć tylko 10 notatek. (używam darmowego planu mordeczko)",
+  "@tooManyNotes": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "failedSavingNote": "Nie udało się zapisać tej notatki.",
+  "@failedSavingNote": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "failedDeletingNote": "Nie udało się usunąć tej notatki.",
+  "@failedDeletingNote": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "failedClearingNotes": "Nie udało się wyczyścić notatek.",
+  "@failedClearingNotes": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "clearNotes": "Wyczyść notatki",
+  "@clearNotes": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "deleteNote": "Usuń notatkę",
+  "@deleteNote": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "notes": "Notatki",
+  "@notes": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "enterNote": "Wprowadź notatkę",
+  "@enterNote": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "login": "Zaloguj się",
+  "@login": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "email": "Email",
+  "@email": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "password": "Hasło",
+  "@password": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "failedLogin": "Logowanie nie powiodło się. Sprawdź swój email i hasło.",
+  "@failedLogin": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "loginAction": "Zaloguj się",
+  "@loginAction": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "confirmDelete": "Czy na pewno chcesz usunąć tę notatkę?",
+  "@confirmDelete": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "confirmDeleteAllNotes": "Czy na pewno chcesz usunąć wszystkie notatki?",
+  "@confirmDeleteAllNotes": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "cancel": "Anuluj",
+  "@cancel": {
+      "type": "text",
+      "placeholders": {}
+  },
+  "delete": "Usuń",
+  "@delete": {
+      "type": "text",
+      "placeholders": {}
+  }
 }
