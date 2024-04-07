@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
     'failedSavingNote': MessageLookupByLibrary.simpleMessage('Could not save this note.'),
     'login': MessageLookupByLibrary.simpleMessage('Login'),
     'loginAction': MessageLookupByLibrary.simpleMessage('Login'),
+    'logout': MessageLookupByLibrary.simpleMessage('Logout'),
+    'logoutConfirmation': MessageLookupByLibrary.simpleMessage('Are you sure you want to logout?'),
     'noteLengthExceeded': MessageLookupByLibrary.simpleMessage('Note length exceeds the limit of 2000 characters.'),
     'notes': MessageLookupByLibrary.simpleMessage('Notes'),
     'ok': MessageLookupByLibrary.simpleMessage('OK'),

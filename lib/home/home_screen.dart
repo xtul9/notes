@@ -144,6 +144,11 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  void _logout() {
+    _showConfirmationDialog(AppLocalizations.of(context)!.logout,
+        AppLocalizations.of(context)!.logoutConfirmation, auth.signOut);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -155,6 +160,11 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.delete),
             onPressed: _clearNotes,
             tooltip: AppLocalizations.of(context)!.clearNotes,
+          ),
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: _logout,
+            tooltip: AppLocalizations.of(context)!.logout,
           ),
         ],
       ),

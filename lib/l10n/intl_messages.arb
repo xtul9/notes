@@ -1,5 +1,5 @@
 {
-  "@@last_modified": "2024-04-07T18:23:54.023348",
+  "@@last_modified": "2024-04-07T18:41:16.080756",
   "appTitle": "Notes",
   "@appTitle": {
     "type": "text",
@@ -137,6 +137,16 @@
   },
   "ok": "OK",
   "@ok": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "logout": "Logout",
+  "@logout": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "logoutConfirmation": "Are you sure you want to logout?",
+  "@logoutConfirmation": {
     "type": "text",
     "placeholders": {}
   }

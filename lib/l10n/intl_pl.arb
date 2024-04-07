@@ -139,5 +139,15 @@
   "@ok": {
     "type": "text",
     "placeholders": {}
+  },
+  "logout": "Wyloguj się",
+  "@logout": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "logoutConfirmation": "Na pewno chcesz się wylogować?",
+  "@logoutConfirmation": {
+    "type": "text",
+    "placeholders": {}
   }
 }

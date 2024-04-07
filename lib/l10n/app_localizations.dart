@@ -205,6 +205,20 @@ class AppLocalizations {
     );
   }
 
+  String get logout {
+    return Intl.message(
+      'Logout',
+      name: 'logout',
+    );
+  }
+
+  String get logoutConfirmation {
+    return Intl.message(
+      'Are you sure you want to logout?',
+      name: 'logoutConfirmation',
+    );
+  }
+
   static LocalizationsDelegate<AppLocalizations> delegate =
       _AppLocalizationsDelegate();
 }
