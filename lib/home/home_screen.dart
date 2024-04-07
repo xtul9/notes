@@ -156,16 +156,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        backgroundColor: Colors.amber,
         title: Text(AppLocalizations.of(context)!.notes),
         actions: <Widget>[
           IconButton(
-            icon: const Icon(Icons.delete, color: Colors.white),
+            icon: const Icon(Icons.delete),
             onPressed: _clearNotes,
             tooltip: AppLocalizations.of(context)!.clearNotes,
           ),
           IconButton(
-            icon: const Icon(Icons.logout, color: Colors.white),
+            icon: const Icon(Icons.logout),
             onPressed: _logout,
             tooltip: AppLocalizations.of(context)!.logout,
           ),

@@ -22,10 +22,6 @@ void main() async {
     supportedLocales: const [Locale('en', ''), Locale('pl', '')],
     onGenerateTitle: (BuildContext context) =>
         AppLocalizations.of(context)!.appTitle,
-    theme: ThemeData(
-      primarySwatch: Colors.amber,
-      visualDensity: VisualDensity.adaptivePlatformDensity,
-    ),
     home: App(),
   ));
 }

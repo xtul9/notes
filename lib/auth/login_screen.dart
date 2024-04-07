@@ -32,6 +32,7 @@ class LoginScreen extends StatelessWidget {
       textDirection: TextDirection.ltr,
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.amber,
           title: Text(AppLocalizations.of(context)!.login),
         ),
         body: Center(
