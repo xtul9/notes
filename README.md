@@ -19,6 +19,7 @@ Just my contribution to the modern world I suppose.
 - Lead to 100% unit test coverage (think it would look funny)
 - More stuff that would make the tech interviewers be like "uhh hmm yeah this guy knows his stuff"
 - Release on Android app store
+- Release on Cloudflare Pages
 
 ## License
 
